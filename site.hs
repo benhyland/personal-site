@@ -22,17 +22,17 @@ main = hakyll $ do
     match (fromList ["index.md", "pages/links.md", "pages/notes.md"]) $ do
         route   $ setExtension "html"
         compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/default.html" defaultContext
+            >>= loadAndApplyTemplate "templates/site.html" defaultContext
             >>= relativizeUrls
 
     match "posts/*" $ do
         route $ setExtension "html"
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/post.html"    postCtx
-            >>= loadAndApplyTemplate "templates/default.html" postCtx
+            >>= loadAndApplyTemplate "templates/site.html" postCtx
             >>= relativizeUrls
 
-    create ["archive.html"] $ do
+    create ["pages/archive.html"] $ do
         route idRoute
         compile $ do
             let archiveCtx =
@@ -42,7 +42,7 @@ main = hakyll $ do
 
             makeItem ""
                 >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
-                >>= loadAndApplyTemplate "templates/default.html" archiveCtx
+                >>= loadAndApplyTemplate "templates/site.html" archiveCtx
                 >>= relativizeUrls
 
 
@@ -54,7 +54,7 @@ main = hakyll $ do
 
             getResourceBody
                 >>= applyAsTemplate indexCtx
-                >>= loadAndApplyTemplate "templates/default.html" postCtx
+                >>= loadAndApplyTemplate "templates/site.html" postCtx
                 >>= relativizeUrls
 
     match "templates/*" $ compile templateCompiler
