@@ -1,5 +1,6 @@
 ---
 title: Hello World
+summary: because reasons
 ---
 
 I'm starting this blog as part of some mini-projects I am doing between jobs.
