@@ -7,7 +7,7 @@ On and off, I do a bit of exercise with Systema, a Russian "reality-based" (as o
 
 I have ended up with a few notes on the general principles and on some common exercises.
 
-I find these helpful when I try to explain what it's about to someone new, which happens ocassionally as Systema is still moderately obscure in the UK.
+I find these helpful when I try to explain what it's about to someone new, which happens occasionally as Systema is still moderately obscure in the UK.
 
 It's also nice to remind myself what I like to play with when I eventually go back to class.
 
@@ -101,7 +101,7 @@ Form should be varied often.
 * Agression as a defence.
 * Hits specifically to deform structure.
 * Hits to attack weapons (e.g. arms).
-* Boxing style - high elbow, straight line from shoulder, shoulder moves first for a whipped arm, tension ionly at the last second.
+* Boxing style - high elbow, straight line from shoulder, shoulder moves first for a whipped arm, tension only at the last second.
 
 ## Legs
 
