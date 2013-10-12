@@ -1,3 +1,15 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:300);
+
+nav, p, div, article, section, aside, header, footer, figure {
+  font-family: 'Roboto Slab', 'Georgia', 'Times', serif;
+}
+
+header {
+    border-bottom: 2px solid black;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+}
+
 body {
     color: black;
     font-size: 16px;
@@ -5,40 +17,34 @@ body {
     width: 600px;
 }
 
-div#header {
-    border-bottom: 2px solid black;
-    margin-bottom: 30px;
-    padding: 12px 0px 12px 0px;
+a {
+	color: black;
 }
 
-div#logo a {
-    color: black;
-    float: left;
+nav {
+    text-align: center;
+}
+
+nav a {
     font-size: 18px;
     font-weight: bold;
-    text-decoration: none;
-}
-
-div#header #navigation {
-    text-align: right;
-}
-
-div#header #navigation a {
-    color: black;
-    font-size: 18px;
-    font-weight: bold;
-    margin-left: 12px;
-    text-decoration: none;
+	color: #888;
+	margin-left: 5px;
+	margin-right: 5px;
     text-transform: uppercase;
 }
 
-div#footer {
+footer {
     border-top: solid 2px black;
     color: #555;
     font-size: 12px;
-    margin-top: 30px;
+    margin-top: 20px;
     padding: 12px 0px 12px 0px;
     text-align: right;
+}
+
+footer p {
+	margin: 2px 0px 2px 0px;
 }
 
 h1 {
@@ -47,10 +53,4 @@ h1 {
 
 h2 {
     font-size: 20px;
-}
-
-div.info {
-    color: #555;
-    font-size: 14px;
-    font-style: italic;
 }
