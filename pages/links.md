@@ -2,7 +2,7 @@
 title: Links
 ---
 
-## People I follow
+## Stuff I follow
 
 * [Paul Duffield](http://www.paulduffield.co.uk/)
 * [eiríkr åsheim](https://twitter.com/d6)
@@ -13,15 +13,17 @@ title: Links
 * [Charles Stross](http://www.antipope.org/charlie/blog-static/)
 * [Conor McBride](https://twitter.com/pigworker)
 * [Maryam Namazie](http://freethoughtblogs.com/maryamnamazie)
-
-## How to computer
-
+* [Ashe Dryden](https://twitter.com/ashedryden)
+* [b00mb0x](http://www.bmbx.org/)
 * [Martin Thompson](http://mechanical-sympathy.blogspot.co.uk/)
 * [Tony Morris](https://twitter.com/dibblego)
 * [Michael Barker](http://bad-concurrency.blogspot.co.uk) 
 * [Anna Powell-Smith](http://anna.ps/)
+* [Erika Moen](http://www.erikamoen.com/blog/)
+* [Kristian Glass](https://twitter.com/doismellburning)
+* [jwz](http://www.jwz.org/blog/)
 
-## Me
+## My stuff
 
 * My [past experience](cv.html), stripped down but vaguely CV shaped
 * My [LinkedIn profile](https://www.linkedin.com/pub/ben-hyland/3/a68/332)
