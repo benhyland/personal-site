@@ -22,6 +22,7 @@ title: Links
 * [Erika Moen](http://www.erikamoen.com/blog/)
 * [Kristian Glass](https://twitter.com/doismellburning)
 * [jwz](http://www.jwz.org/blog/)
+* [Julia Evans](http://jvns.ca/)
 
 ## My stuff
 
