@@ -11,7 +11,8 @@ title: Ben Hyland
 May 2013 onwards:  
 Developer at **[LMAX Exchange](http://www.lmax.com/)**
 
-* Development of new features and performance improvements in order matching, monitoring, and market data and trade reporting
+* Development of new features in order matching, monitoring, and market data and trade reporting
+* General performance improvements, but especially market data generation and cpu affinity
 
 * * * * *
 
@@ -29,8 +30,7 @@ Software Engineer, Search Architect at **[Taptu](https://www.taptu.com/)**
 
 * Improvment of content mixing, generating per-user recommendations using text classification and clustering algorithms
 * Implementation of distributed, scalable and fault tolerant web crawlers with adaptive recrawl period
-* Design and development of a distributed ad
-server with rules for parallelising ad requests to publishers
+* Design and development of a distributed ad server with rules for parallelising ad requests to publishers
 
 * * * * *
 
@@ -57,5 +57,5 @@ Hills Road Sixth Form College, Cambridge
 4 A-levels in maths and science
 
 1993 – 1998 Parkside Community College, Cambridge  
-11 GCSEs  
+11 GCSEs
 
