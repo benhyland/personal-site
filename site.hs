@@ -7,11 +7,7 @@ import           Hakyll
 --------------------------------------------------------------------------------
 main :: IO ()
 main = hakyll $ do
-    match "images/*" $ do
-        route   idRoute
-        compile copyFileCompiler
-
-    match "favicon.ico" $ do
+    match ("images/*" .||. "favicon.ico") $ do
         route   idRoute
         compile copyFileCompiler
 
@@ -19,7 +15,7 @@ main = hakyll $ do
         route   idRoute
         compile compressCssCompiler
 
-    match (fromList ["index.md", "pages/links.md", "pages/notes.md", "pages/cv.md"]) $ do
+    match ("index.md" .||. "pages/*.md") $ do
         route   $ setExtension "html"
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/site.html" defaultContext
@@ -28,7 +24,7 @@ main = hakyll $ do
     match "posts/*" $ do
         route $ setExtension "html"
         compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/post.html"    postCtx
+            >>= loadAndApplyTemplate "templates/post.html" postCtx
             >>= loadAndApplyTemplate "templates/site.html" postCtx
             >>= relativizeUrls
 
