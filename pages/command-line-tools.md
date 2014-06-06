@@ -79,10 +79,33 @@ Change a file's size. If the size is extended, no new blocks are allocated; you 
 
 	truncate -s 42m foo
 
-### vim
-### less
-### tail
-### head
+### [vim](http://vimdoc.sourceforge.net/)
+[Cheat sheet](http://www.fprintf.net/vimCheatSheet.html).
+
+Stuff I need to remember:
+
+`"+p` to paste from Ctrl+C buffer, `"*p` to paste from hilight buffer (usually).\
+`:%s/foo/bar/g` for substitution.\
+`u` for undo, `Ctrl+R` for redo.\
+`~` to toggle case.
+
+### [less](http://linux.die.net/man/1/less)
+Doesn't need to load the whole file before displaying some of it.
+
+`F` follows file.\
+`/foo` searches, `n` next, `N` previous.\
+`&foo` hides non-matching lines (awesome!).
+
+### [tail](http://man7.org/linux/man-pages/man1/tail.1.html)
+`-f` follows file by descriptor.\
+`-F` follows file by name.
+
+### [head](http://man7.org/linux/man-pages/man1/head.1.html)
+`-n num` shows the first `num` lines of the given file.\
+Combine with `tail` to pick out the interesting bit from the middle of a file:
+	
+	<foo head -n 30000 | tail -n -50
+
 ### cat
 ### od
 ### xxd
