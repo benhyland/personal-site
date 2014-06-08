@@ -106,11 +106,30 @@ Combine with `tail` to pick out the interesting bit from the middle of a file:
 	
 	<foo head -n 30000 | tail -n -50
 
-### cat
-### od
-### xxd
-### tar
-### gzip
+### [od](http://man7.org/linux/man-pages/man1/od.1.html)
+Useful for examining small file fragments for oddities, such as malformed unicode, smashed arrays, messed up line endings.
+
+### [xxd](http://linux.die.net/man/1/xxd)
+Dump or recover file as hex (or binary).
+
+For manual view with offsets and ascii:
+	xxd -cols 64 foo
+
+Dump and recover plain hex:
+	xxd -p foo > out
+	xxd -p -r out > foo2
+
+### [tar](http://man7.org/linux/man-pages/man1/tar.1.html)
+Create archives:
+	tar cvf foo.tar foo/
+	tar cvzf foo.tar.gz foo/
+	tar cvjf foo.tar.bz2 foo/
+
+Extract archives:
+	tar xvf foo.tar
+	tar xvzf foo.tar.gz
+	tar xvjf foo.tar.bz2
+
 ### find
 
 # Remoting
