@@ -130,12 +130,45 @@ Extract archives:
 	tar xvzf foo.tar.gz
 	tar xvjf foo.tar.bz2
 
-### find
+### [find](http://man7.org/linux/man-pages/man1/find.1.html)
+Search for files and do things to them.
+
+There are a bunch of filter options; by default these form a conjunction but be combined with `-or` clauses and parentheses if more complex filters are needed.
+
+For example: find files and directories under the current working directory having a `basename` starting with `foo`, and also find files having `bar` somewhere in their path which had their content modified within the last hour and are greater than 50 megabytes in size.
+
+	find . -name 'foo*' -o \( -mtime -60m -path '*bar*' -type f -size +50M \)
+
+Find can also invoke commands on its results.
+
+`-exec command arg '{}' ';'` will execute command once for each result. `{}` are replaced with the path to the current target, `;` signifies the end of `command`'s arguments. `-exec command arg '{}' '+'` does the same but builds up a list of results to reduce the number of `command` invocations. There could be more than one invocation if the number of results is large enough to run over the maximum command length. Since the command is built by appending results, there cannot be any args between `{}` and `+`.
+
+	find . ! -path './build*' -name '*.log' -exec tar cvf ~/logs.tar '{}' '+'
 
 # Remoting
 
-### ssh
-### scp
+### [ssh](http://man7.org/linux/man-pages/man1/ssh.1.html)
+Lots more to use and abuse here. Most of the time, I only need a small amount of the real ultimate power available. This is lucky since I don't know ssh at all well.
+
+`-A` forwards agent authentication to the remote host.
+`-L` and `-R` are for port forwarding, and take additional options to describe the tunnel.
+`-N` avoids running any remote command.
+`-T` avoids allocating a remote terminal.
+`-f` sends ssh to the background just before it runs any commands (but after it asks for passwords).
+`-l` sets login name.
+`-p` sets remote port.
+`-v` for debugging - just add `-v`s until the error messages start to make sense or you run out of keyboard.
+`-X` and `-Y` are for normal and trusted X forwarding.
+
+Some forwarding rules in the config file can save typing if you have a segregated network and regularly need to go via jump hosts.
+
+### [scp](http://man7.org/linux/man-pages/man1/scp.1.html)
+	
+	scp user@sourcehost:/path/to/source user@targethost:/path/to/target
+
+`-r` for recursive directory copy.
+`-l kbits` for rate limit of `kbits` per second.
+
 ### rsync
 ### curl
 ### wget
