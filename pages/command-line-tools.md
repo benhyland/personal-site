@@ -113,19 +113,23 @@ Useful for examining small file fragments for oddities, such as malformed unicod
 Dump or recover file as hex (or binary).
 
 For manual view with offsets and ascii:
+
 	xxd -cols 64 foo
 
 Dump and recover plain hex:
+
 	xxd -p foo > out
 	xxd -p -r out > foo2
 
 ### [tar](http://man7.org/linux/man-pages/man1/tar.1.html)
 Create archives:
+
 	tar cvf foo.tar foo/
 	tar cvzf foo.tar.gz foo/
 	tar cvjf foo.tar.bz2 foo/
 
 Extract archives:
+
 	tar xvf foo.tar
 	tar xvzf foo.tar.gz
 	tar xvjf foo.tar.bz2
@@ -148,17 +152,25 @@ Find can also invoke commands on its results.
 # Remoting
 
 ### [ssh](http://man7.org/linux/man-pages/man1/ssh.1.html)
-Lots more to use and abuse here. Most of the time, I only need a small amount of the real ultimate power available. This is lucky since I don't know ssh at all well.
+Lots more to use and abuse here. Most of the time, I only need a small amount of the real ultimate power available. This is fortunate since I don't know ssh at all well.
 
-`-A` forwards agent authentication to the remote host.
-`-L` and `-R` are for port forwarding, and take additional options to describe the tunnel.
-`-N` avoids running any remote command.
-`-T` avoids allocating a remote terminal.
-`-f` sends ssh to the background just before it runs any commands (but after it asks for passwords).
-`-l` sets login name.
-`-p` sets remote port.
-`-v` for debugging - just add `-v`s until the error messages start to make sense or you run out of keyboard.
+`-A` forwards agent authentication to the remote host.\
+`-L` and `-R` are for port forwarding, and take additional options to describe the tunnel.\
+`-N` avoids running any remote command.\
+`-T` avoids allocating a remote terminal.\
+`-f` sends ssh to the background just before it runs any commands (but after it asks for passwords).\
+`-l` sets login name.\
+`-p` sets remote port.\
+`-v` for debugging - just add `-v`s until the error messages start to make sense or you run out of keyboard.\
 `-X` and `-Y` are for normal and trusted X forwarding.
+
+Generate a new keypair with `ssh-keygen -t rsa -C 'public comment, e.g. email address or name'`.
+The private key is generated in `~/.ssh/id_rsa` and the public key in `~/.ssh/id_rsa.pub`.
+
+Supply the public key to appropriate hosts by appending it to `~/.ssh/authorized_keys` or using [ssh-copy-id](http://linux.die.net/man/1/ssh-copy-id), which also ensures file permissions are correct.
+
+`ssh-add` can be used to add keys, or check what keys have been added, or check whether an agent is accessible.\
+This can be useful in scripts that need to pre-authorise as they start up.
 
 Some forwarding rules in the config file can save typing if you have a segregated network and regularly need to go via jump hosts.
 
@@ -166,12 +178,36 @@ Some forwarding rules in the config file can save typing if you have a segregate
 	
 	scp user@sourcehost:/path/to/source user@targethost:/path/to/target
 
-`-r` for recursive directory copy.
+`-r` for recursive directory copy.\
 `-l kbits` for rate limit of `kbits` per second.
 
-### rsync
-### curl
-### wget
+### [rsync](http://linux.die.net/man/1/rsync)
+
+rsync is a very flexible program for remote copying that I've so far tended only to use for backup or syncing.
+
+`-H` preserves hard links.\
+`-A` preserves ACLs.\
+`-X` preserves extended attributes.\
+`-a` archive mode: recursively copy subdirectories, preserves symbolic links, permissions, owner, group, times.\
+`--delete` cleans the target.\
+`--exclude-from=file` specifies file containing patterns to ignore.
+
+### [curl](http://curl.haxx.se/docs/manpage.html)
+
+Useful for scripted downloads and for command line testing of http apis.
+
+`-H` adds a header.\
+`-c` specifies cookie file to write to.\
+`-b` specifies cookie file to read from.\
+`-d` sends POST data. Other options exist for sending binary or url encoded data, reading from a file, sending form data, multipart data and so on.\
+`-I` http HEAD.\
+`-L` follows redirects.\
+`-r` request a byte range.\
+`-T` upload files with PUT.
+
+### [wget](http://www.gnu.org/software/wget/manual/wget.html)
+
+The main use case for `wget` over `curl` is recursively downloading directories of files, following links in dowloaded documents, and coverting links for local use.
 
 # Networks
 
