@@ -11,7 +11,10 @@ summary: Quick descriptions of program I use often during my normal work, and al
 `-l` shows long detail\
 `-h` shows human readable sizes\
 `-1` ouputs one directory entry per line\
-`-d` stats a directory rather than its contents
+`-d` stats a directory rather than its contents\
+`-t` sort output to show most recently modified first\
+`-u` sort by last access time instead of last modified time
+
 
 ### [mv](http://man7.org/linux/man-pages/man1/mv.1.html)
 Sometimes thought of as being an atomic `cp`/`rm` but isn't really.
@@ -25,6 +28,7 @@ Multiple clauses can be used in a single invocation e.g.
 	chmod a+r,go-wx foo
 
 ### [chown](http://man7.org/linux/man-pages/man1/chown.1.html)
+
 	chown bhyland:wheel foo
 
 `-R` for recursive\
@@ -44,6 +48,15 @@ Safely create temporary files, avoiding various security related race conditions
 	mktemp foo/bar.XXXXX
 
 `-d` to create a directory
+
+### [flock](http://man7.org/linux/man-pages/man1/flock.1.html)
+`flock` handles file locks, quite an easy way to do critical sections in scripts.\
+You can lock a file by name or descriptor. The lock is released when the file is closed.
+
+`-x` for exclusive lock.\
+`-s` for shared lock.\
+`-w seconds` to fail if the lock is not available after the given timeout.\
+`-n` to fail immediately if the lock is not available.
 
 ### [dirname](http://man7.org/linux/man-pages/man1/dirname.1.html)/[basename](http://man7.org/linux/man-pages/man1/basename.1.html)
 `dirname` outputs the containing directory of the file or directory represented by the given path.
@@ -180,14 +193,13 @@ This can be useful in scripts that need to pre-authorise as they start up.
 Some forwarding rules in the config file can save typing if you have a segregated network and regularly need to go via jump hosts.
 
 ### [scp](http://man7.org/linux/man-pages/man1/scp.1.html)
-	
+
 	scp user@sourcehost:/path/to/source user@targethost:/path/to/target
 
 `-r` for recursive directory copy.\
 `-l kbits` for rate limit of `kbits` per second.
 
 ### [rsync](http://linux.die.net/man/1/rsync)
-
 rsync is a very flexible program for remote copying that I've so far tended only to use for backup or syncing.
 
 `-H` preserves hard links.\
@@ -198,7 +210,6 @@ rsync is a very flexible program for remote copying that I've so far tended only
 `--exclude-from=file` specifies file containing patterns to ignore.
 
 ### [curl](http://curl.haxx.se/docs/manpage.html)
-
 Useful for scripted downloads and for command line testing of http apis.
 
 `-H` adds a header.\
@@ -212,7 +223,6 @@ Useful for scripted downloads and for command line testing of http apis.
 `-s` silent mode.
 
 ### [wget](http://www.gnu.org/software/wget/manual/wget.html)
-
 The main use case for `wget` over `curl` is recursively downloading directories of files, following links in dowloaded documents, and coverting links for local use.
 
 # Networks
@@ -241,11 +251,9 @@ Open a connection to a server, and transmit data received on stdin over the conn
 `-u` uses udp instead of tcp.
 
 ### [socat](http://www.dest-unreach.org/socat/doc/socat.html)
-
 `socat` allows full duplex communication between two channels, handling the necessary config and protocol for you. A channel could be a file, pipe, device, various kinds of socket, or another program. Lots to learn here but it seems like a good starting point for any one-off task that needs bidirectional integration hackery.
 
 ### [ifconfig](http://man7.org/linux/man-pages/man8/ifconfig.8.html)
-
 Examine and configure network interfaces. Prefer `ip` et al where they are available.
 
 `ifconfig -a` shows status of all interfaces.\
@@ -253,7 +261,6 @@ Examine and configure network interfaces. Prefer `ip` et al where they are avail
 `ifconfig eth0 option` sets option for interface named eth0 (e.g. up/down, broadcast, multicast, address).
 
 ### [ip](http://linux.die.net/man/8/ip)
-
 `ip` is the main tool in the [iproute2](http://www.linuxfoundation.org/collaborate/workgroups/networking/iproute2) suite, which replaces ifconfig, among other things. Most commands now follow a common pattern:
 
 	ip object verb
@@ -262,26 +269,70 @@ Objects are things like `addr`, `link`, `route`.\
 Verbs are commands specific to the object, like `show`, `add`, `del`.
 
 ### [iw](http://linux.die.net/man/8/iw)
-
 `iw` is the iproute2 tool for handling wireless devices. Haven't used it yet as I'm currently running FreeBSD on my laptop and iproute2 is linux-only.
 
 ### [ss](http://linux.die.net/man/8/ss)
+Examine sockets. Replaces `netstat` where available.
 
-...
+`-t` shows tcp sockets.\
+`-u` shows udp sockets.\
+`-p` shows process associated with each socket.\
+`-n` shows numeric addresses without resolving them.\
+`-o`, `-i`, `-e`, `-m`, `-s` shows various forms of info associated with each socket.
 
-### lldpctrl
-### tcpdump, dump analysis e.g. wireshark, handshakes etc
+### [lldpctl](http://vincentbernat.github.io/lldpd/usage.html)
+Each interface on a device sends [LLDP](http://en.wikipedia.org/wiki/Link_Layer_Discovery_Protocol) frames at regular intervals to inform the network of device details. `lldpd` receives (and sends) the lldp frames. `lldpctl` queries the info recieved, and can tell us what is connected on the other end of our links.
+
+For example, to show basic mandatory lldp info for devices connected to eth0:
+
+	lldpctl show neighbors ports eth0 summary
+
+### [tcpdump](http://www.tcpdump.org/manpages/tcpdump.1.html)
+tcpdump monitors network interfaces and captures traffic on them for display or for later analysis.
+Normally we will need superuser privileges to start a capture session.
+
+To capture all tcp packets on a particular port to file:
+
+	tcpdump -i eth0 -w outfile 'tcp port 9001'
+
+Recorded dumps can be analysed with [wireshark](http://www.wireshark.org/docs/). Fairly powerful filter languages are available in both [tcpdump](http://www.tcpdump.org/manpages/pcap-filter.7.html) and [wireshark](http://wiki.wireshark.org/DisplayFilters) to help make capture and analysis more tractable. 
 
 # Text Processing
 
-### grep
-### sed
+### [grep](http://www.gnu.org/software/grep/manual/grep.html)
+Searches input text for patterns and outputs matching lines.
+
+	grep options pattern filenames
+	<data grep options pattern
+
+`-c` emit count of matched lines instead of the lines themselves\
+`-v` invert match\
+`-l` print names of files with at least one matching line\
+`-h` suppress the filename printing used when more than one file is searched\
+`-B num`, `-A num` in addition to the matched line, print `num` lines before or after\
+`-r` recurse into directories\
+`-E` allow extended regex (including `|` for pattern disjunction)\
+`-f patternfile` obtain patterns from the given file\
+`-F` treat patterns as fixed strings delimited by newlines
+
+### [sed](http://man7.org/linux/man-pages/man1/sed.1.html)
+Transforms streamed text.
+
+To match all instances of `pattern` in the input and replace them with `replacement`:
+	<data sed s/pattern/replacement/g
+
+To emit only the matched group wherever it occurs:
+	<data sed -n 's/prefix \(group to match\) suffix/\1/p'
+
+`/` is the traditional separator but can be replaced by any character (e.g. to avoid the need to escape with `\`).\
+`-i` or `-i .bak` to transform in place with optional backup suffix.
+
 ### awk
 ### cut
 
 ### [tr](http://man7.org/linux/man-pages/man1/tr.1.html)
 
-`tr 'abc' 'd'` replaces each occurence of any character in the first argument with the character in the second argument (the last character, if more than one are given).\
+`tr 'abc' 'd'` replaces each occurence of a character in the first argument with the character of the corresponding index in the second argument (or the last character, if there are not enough in the second array).\
 `tr -d 'abc'` deletes instead.
 
 ### bc
@@ -313,6 +364,8 @@ Verbs are commands specific to the object, like `show`, `add`, `del`.
 ### strace
 ### dtrace
 ### perf
+### systemtap
+### taskset, isolcpus, chkconfig, chrt
 ### hostname
 ### date
 ### whoami (whoami really? apue/dan script)
