@@ -309,6 +309,7 @@ Searches input text for patterns and outputs matching lines.
 `-v` invert match\
 `-l` print names of files with at least one matching line\
 `-h` suppress the filename printing used when more than one file is searched\
+`-H` always print the filename in which a match is found\
 `-B num`, `-A num` in addition to the matched line, print `num` lines before or after\
 `-r` recurse into directories\
 `-E` allow extended regex (including `|` for pattern disjunction)\
@@ -327,7 +328,15 @@ To emit only the matched group wherever it occurs:
 `/` is the traditional separator but can be replaced by any character (e.g. to avoid the need to escape with `\`).\
 `-i` or `-i .bak` to transform in place with optional backup suffix.
 
-### awk
+### [awk](http://man7.org/linux/man-pages/man1/gawk.1.html)
+[AWK](http://en.wikipedia.org/wiki/AWK) named after [Aho](http://en.wikipedia.org/wiki/Alfred_Aho), [Weinberger](http://en.wikipedia.org/wiki/Peter_J._Weinberger) and [Kernighan](http://en.wikipedia.org/wiki/Brian_Kernighan).
+
+Awk is used for filtering and processing text files by dividing them into records and fields, and providing a dsl for examining them and emitting processed data. By default records are delimited by newlines and fields by whitespace. The awk script language is powerful and well designed for simple processing. However, it is dynamically typed and not particularly easy to test, so it is best to avoid complicated stateful processing.
+
+The full manual for the GNU impl `gawk` is [here](http://www.gnu.org/software/gawk/manual/).
+
+`-f scriptfile` runs awk script from a file rather than from a command line argument. Allows the awk shebang `#!/awk -f`.\
+
 ### cut
 
 ### [tr](http://man7.org/linux/man-pages/man1/tr.1.html)
