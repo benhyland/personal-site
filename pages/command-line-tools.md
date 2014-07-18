@@ -6,14 +6,14 @@ summary: Quick descriptions of program I use often during my normal work, and al
 # Filesystem
 
 ### [ls](http://man7.org/linux/man-pages/man1/ls.1.html)
-`-s` shows allocated blocks\
+`-s` shows allocated blocks.\
 `-a` shows all, `-A` shows all except . and ..\
-`-l` shows long detail\
-`-h` shows human readable sizes\
-`-1` ouputs one directory entry per line\
-`-d` stats a directory rather than its contents\
-`-t` sort output to show most recently modified first\
-`-u` sort by last access time instead of last modified time
+`-l` shows long detail.\
+`-h` shows human readable sizes.\
+`-1` ouputs one directory entry per line.\
+`-d` stats a directory rather than its contents.\
+`-t` sort output to show most recently modified first.\
+`-u` sort by last access time instead of last modified time.
 
 
 ### [mv](http://man7.org/linux/man-pages/man1/mv.1.html)
@@ -39,15 +39,15 @@ Create hard links or symbolic links. A hard link is just another directory entry
 	
 	ln target link
 
-`-s` for a symbolic link\
-`-f` to attempt to remove existing files with the same name as the link (force)
+`-s` for a symbolic link.\
+`-f` to attempt to remove existing files with the same name as the link (force).
 
 ### [mktemp](http://man7.org/linux/man-pages/man1/mktemp.1.html)
 Safely create temporary files, avoiding various security related race conditions. Files are created with **rw** for the owner only. Not to be confused with the unsafe [mktemp](http://man7.org/linux/man-pages/man3/mktemp.3.html) function, which was replaced by [mkstemp](http://man7.org/linux/man-pages/man3/mkstemp.3.html).
 
 	mktemp foo/bar.XXXXX
 
-`-d` to create a directory
+`-d` to create a directory.
 
 ### [flock](http://man7.org/linux/man-pages/man1/flock.1.html)
 `flock` handles file locks, quite an easy way to do critical sections in scripts.\
@@ -74,9 +74,9 @@ These are [bash builtins](http://man7.org/linux/man-pages/man1/bash.1.html#SHELL
 Both take `-n` to suppress the cd.
 
 `dirs` displays the stack.\
-`-l` for full pathnames\
-`-p` for one entry per line\
-`-c` to clear the stack
+`-l` for full pathnames.\
+`-p` for one entry per line.\
+`-c` to clear the stack.
 
 `pushd` and `popd` display the new stack if successful, so some scripts will need to redirect their output.
 
@@ -112,7 +112,8 @@ Doesn't need to load the whole file before displaying some of it.
 `F` follows file.\
 `/foo` searches, `n` next, `N` previous.\
 `&foo` hides non-matching lines (awesome!).\
-`less -r` allows raw characters, which among other things allows ansi colour to display properly.
+`less -r` allows raw characters, which among other things allows ansi colour to display properly.\
+`!` before a search negates the match.
 
 ### [tail](http://man7.org/linux/man-pages/man1/tail.1.html)
 `-f` follows file by descriptor.\
@@ -281,7 +282,7 @@ Examine sockets. Replaces `netstat` where available.
 `-o`, `-i`, `-e`, `-m`, `-s` shows various forms of info associated with each socket.
 
 ### [lldpctl](http://vincentbernat.github.io/lldpd/usage.html)
-Each interface on a device sends [LLDP](http://en.wikipedia.org/wiki/Link_Layer_Discovery_Protocol) frames at regular intervals to inform the network of device details. `lldpd` receives (and sends) the lldp frames. `lldpctl` queries the info recieved, and can tell us what is connected on the other end of our links.
+Each interface on a device sends [LLDP](http://en.wikipedia.org/wiki/Link_Layer_Discovery_Protocol) frames at regular intervals to inform the network of device details. `lldpd` receives (and sends) the lldp frames. `lldpctl` queries the info received, and can tell us what is connected on the other end of our links.
 
 For example, to show basic mandatory lldp info for devices connected to eth0:
 
@@ -305,24 +306,26 @@ Searches input text for patterns and outputs matching lines.
 	grep options pattern filenames
 	<data grep options pattern
 
-`-c` emit count of matched lines instead of the lines themselves\
-`-v` invert match\
-`-l` print names of files with at least one matching line\
-`-h` suppress the filename printing used when more than one file is searched\
-`-H` always print the filename in which a match is found\
-`-B num`, `-A num` in addition to the matched line, print `num` lines before or after\
-`-r` recurse into directories\
-`-E` allow extended regex (including `|` for pattern disjunction)\
-`-f patternfile` obtain patterns from the given file\
-`-F` treat patterns as fixed strings delimited by newlines
+`-c` emit count of matched lines instead of the lines themselves.\
+`-v` invert match.\
+`-l` print names of files with at least one matching line.\
+`-h` suppress the filename printing used when more than one file is searched.\
+`-H` always print the filename in which a match is found.\
+`-B num`, `-A num` in addition to the matched line, print `num` lines before or after.\
+`-r` recurse into directories.\
+`-E` allow extended regex (including `|` for pattern disjunction).\
+`-f patternfile` obtain patterns from the given file.\
+`-F` treat patterns as fixed strings delimited by newlines.
 
 ### [sed](http://man7.org/linux/man-pages/man1/sed.1.html)
 Transforms streamed text.
 
 To match all instances of `pattern` in the input and replace them with `replacement`:
+
 	<data sed s/pattern/replacement/g
 
 To emit only the matched group wherever it occurs:
+
 	<data sed -n 's/prefix \(group to match\) suffix/\1/p'
 
 `/` is the traditional separator but can be replaced by any character (e.g. to avoid the need to escape with `\`).\
@@ -331,23 +334,56 @@ To emit only the matched group wherever it occurs:
 ### [awk](http://man7.org/linux/man-pages/man1/gawk.1.html)
 [AWK](http://en.wikipedia.org/wiki/AWK) named after [Aho](http://en.wikipedia.org/wiki/Alfred_Aho), [Weinberger](http://en.wikipedia.org/wiki/Peter_J._Weinberger) and [Kernighan](http://en.wikipedia.org/wiki/Brian_Kernighan).
 
-Awk is used for filtering and processing text files by dividing them into records and fields, and providing a dsl for examining them and emitting processed data. By default records are delimited by newlines and fields by whitespace. The awk script language is powerful and well designed for simple processing. However, it is dynamically typed and not particularly easy to test, so it is best to avoid complicated stateful processing.
+Awk is used for filtering and processing text files by dividing them into records and fields, and providing a dsl for examining them and emitting processed data. By default, records are delimited by newlines and fields by whitespace. The awk script language is powerful and well designed for simple processing. However, it is dynamically typed and not particularly easy to test, so it is best to avoid complicated stateful processing.
 
 The full manual for the GNU impl `gawk` is [here](http://www.gnu.org/software/gawk/manual/).
 
-`-f scriptfile` runs awk script from a file rather than from a command line argument. Allows the awk shebang `#!/awk -f`.\
+`-f scriptfile` runs awk script from a file rather than from a command line argument. Allows the awk shebang `#!/awk -f`.
 
-### cut
+### [cut](http://man7.org/linux/man-pages/man1/cut.1.html)
+For when you were going to use awk to emit parts of records, without additional processing.
+
+`-d` sets the field delimiter.\
+`-f 2,3` selects fields to emit.\
+`--complement` and `--output-delimiter` are self explanatory.
+
+`cut` can also work with characters or bytes instead of fields.
 
 ### [tr](http://man7.org/linux/man-pages/man1/tr.1.html)
 
 `tr 'abc' 'd'` replaces each occurence of a character in the first argument with the character of the corresponding index in the second argument (or the last character, if there are not enough in the second array).\
 `tr -d 'abc'` deletes instead.
 
-### bc
-### wc
-### sort
-### uniq
+### [bc](http://www.gnu.org/software/bc/)
+Arbitrary precision arithmetic on the command line. Input is provided as a sequence of commands to the interpreter or on stdin. Input is delimited by semicolons or newlines.
+
+`scale` sets the number of digits operations use after the decimal point.\
+`ibase` and `obase` set the base used for input and output numbers.
+
+Letters used in variable names must be lowercase.
+Additional digits used for bases higher than 10 must be uppercase.
+
+### [wc](http://man7.org/linux/man-pages/man1/wc.1.html)
+Counts lines, words and bytes on stdin or in the given files.
+
+`-l` for line count only.\
+`-w` for word count only.\
+`-c` for byte count only.
+
+### [sort](http://man7.org/linux/man-pages/man1/sort.1.html)
+Emits sorted lines from stdin or the given files.
+
+`-k fieldindex` specifies field to sort on.\
+`-n` use numeric sort.
+
+### [uniq](http://man7.org/linux/man-pages/man1/uniq.1.html)
+Analyse and process input containing repeated lines from stdin.
+
+`-c` emit a repetition count before each line.\
+`-d` emit repeated lines only.\
+`-u` emit non-repeated lines only.\
+`-i` ignore case.
+
 ### comm
 ### join
 ### rev
