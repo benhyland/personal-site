@@ -384,12 +384,37 @@ Analyse and process input containing repeated lines from stdin.
 `-u` emit non-repeated lines only.\
 `-i` ignore case.
 
-### comm
-### join
-### rev
-### tee
-### diff
-### patch
+### [comm](http://man7.org/linux/man-pages/man1/comm.1.html)
+Perfect tool for a few very specific use cases.
+
+Compare two presorted files and output three columns managed as follows:
+
+`-1` suppress the first column, lines unique to the first file.\
+`-2` suppress the second column, lines unique to the second file.\
+`-3` suppress the third column, lines that appear in both files.
+
+### [join](http://man7.org/linux/man-pages/man1/join.1.html)
+Joins associated lines of two files presorted on the same key field.
+
+### [tee](http://man7.org/linux/man-pages/man1/tee.1.html)
+Duplicates data on stdin by writing to stdout and to the given files.
+
+`-a` appends instead of overwriting.
+
+### [diff](http://man7.org/linux/man-pages/man1/diff.1.html)
+Compares two files or directories.
+
+`-y` produces two column output so diffs appear side by side.\
+`-W width` sets the output max column width.\
+`--suppress-common-lines` is self explanatory.
+
+There are some occasionally useful options to ignore various kinds of whitespace changes.
+`diff` output can be used as the input to `patch`.
+
+### [patch](http://man7.org/linux/man-pages/man1/patch.1.html)
+Apply a patch to files within the current working directory, assuming that the patch contains filenames that are relative to the current working directory:
+
+	< my.diffs.patch patch -p0
 
 # System
 
