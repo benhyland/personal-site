@@ -418,12 +418,78 @@ Apply a patch to files within the current working directory, assuming that the p
 
 # System
 
-### ps
-### pgrep/pkill
-### kill
-### killall
-### top
-### lsof
+### [ps](http://man7.org/linux/man-pages/man1/ps.1.html)
+`ps` displays information on running processes. It's one of the most common examples of a program which supports different argument styles for UNIX and BSD. By habit I tend to use BSD style.
+
+Show processes without requiring they have the effective user id of the current user, and without requiring they have a tty, and display user-oriented output, and display the hierarchical process tree (forest):
+
+	ps axuf
+
+Show per process thread ids, BSD and UNIX styles:
+
+	ps axH -O lwp
+	ps -eLf
+
+For historical reasons the term used for threads by `ps` is `**l**ight **w**eight **p**rocess`. Originally, linux only supported multithreaded processes via userspace threading libraries - to the kernel there was still only a single process. Nowadays the kernel doesn't distinguish very much between threads and processes - it has a process for each thread. In linux, threads share a thread group id (which is the return value for [getpid](http://man7.org/linux/man-pages/man2/getpid.2.html)) and have a system-unique thread id (returned by [gettid](http://man7.org/linux/man-pages/man2/gettid.2.html). See [clone](http://man7.org/linux/man-pages/man2/clone.2.html).
+
+### [pgrep/pkill](http://man7.org/linux/man-pages/man1/pgrep.1.html)
+List or signal processes selected by the given criteria.
+
+`-f` matches against the full command line instead of just the process name.\
+`-l` have `pgrep` list process names as well as ids.\
+`-n` or `-o` only handle the most recently or least recently started of the matching processes.
+
+### [kill](http://man7.org/linux/man-pages/man1/kill.1.html)
+Signal processes or process groups.
+
+`-L` list signals.\
+`-s signal` specify alternative to SIGTERM.
+
+### [killall](http://man7.org/linux/man-pages/man1/killall.1.html)
+Yet another way to signal processes.
+
+Notable on linux for options to match against process start time.
+
+### [top](http://linux.die.net/man/1/top)
+`top` observes the system and running processes in real time by displaying a sequence of snapshots.
+
+System wide, it summarises cpu and memory activity and gives a count of processes.
+
+`h` show help.\
+`H` show threads.\
+`o` change sort order (default is cpu).
+
+The load averages displayed in the summary is read from [/proc/loadavg](http://man7.org/linux/man-pages/man5/proc.5.html) and show the number of jobs waiting for cpu time or I/O, averaged over 1, 5 and 15 minutes.
+
+### [lsof](http://www.netadmintools.com/html/lsof.man.html)
+List open files, or find processes associated with particular files. Since sockets are files, `lsof` can handle a little basic network diagnosis.
+
+Show which process is bound to a particular port:
+
+	lsof -i :12345
+
+Show processes connected to a particular host and port:
+	
+	lsof -i@198.51.100.1:8080
+
+Show processes which have a particular file open:
+
+	lsof <file>
+
+Show processes which have any files under a particular directory open:
+
+	lsof +D <directory>
+
+Show the files opened by a particular process:
+
+	lsof -p <pid>
+
+`-a` use conjuntion instead of disjunction for combining multiple selection options.\
+`-n` prevent dns lookups.\
+`-t` just display the pid.
+
+For most use cases `lsof` requires superuser privileges as it needs to look at file handle tables for processes not owned by the current user.
+
 ### df
 ### du
 ### sar
