@@ -98,13 +98,14 @@ Change a file's size. If the size is extended, no new blocks are allocated; you 
 ### [vim](http://vimdoc.sourceforge.net/)
 [Cheat sheet](http://www.fprintf.net/vimCheatSheet.html).
 
-Stuff I need to remember:
+Some stuff I might forget:
 
 `"+p` to paste from Ctrl+C buffer, `"*p` to paste from hilight buffer (usually).\
 `:%s/foo/bar/g` for substitution.\
 `u` for undo, `Ctrl+R` for redo.\
 `~` to toggle case.\
 `:set paste`/`:set nopaste` to paste large chunks without autoindent messing up the indentation.
+`:set lines` to show end of line (LF). `:set ff=unix` to show unexpected CRs.
 
 ### [less](http://linux.die.net/man/1/less)
 Doesn't need to load the whole file before displaying some of it.
@@ -292,9 +293,9 @@ For example, to show basic mandatory lldp info for devices connected to eth0:
 tcpdump monitors network interfaces and captures traffic on them for display or for later analysis.
 Normally we will need superuser privileges to start a capture session.
 
-To capture all tcp packets on a particular port to file:
+To capture all tcp packets on a particular port to file, using the maximum buffer size to capture spikier traffic without dropping packets:
 
-	tcpdump -i eth0 -w outfile 'tcp port 9001'
+	tcpdump -i eth0 -w outfile -B 65535 'tcp port 9001'
 
 Recorded dumps can be analysed with [wireshark](http://www.wireshark.org/docs/). Fairly powerful filter languages are available in both [tcpdump](http://www.tcpdump.org/manpages/pcap-filter.7.html) and [wireshark](http://wiki.wireshark.org/DisplayFilters) to help make capture and analysis more tractable. 
 
@@ -338,7 +339,7 @@ Awk is used for filtering and processing text files by dividing them into record
 
 The full manual for the GNU impl `gawk` is [here](http://www.gnu.org/software/gawk/manual/).
 
-`-f scriptfile` runs awk script from a file rather than from a command line argument. Allows the awk shebang `#!/awk -f`.
+`-f scriptfile` runs awk script from a file rather than from a command line argument. Allows the awk shebang `#!/usr/bin/awk -f`.
 
 ### [cut](http://man7.org/linux/man-pages/man1/cut.1.html)
 For when you were going to use awk to emit parts of records, without additional processing.
@@ -490,12 +491,39 @@ Show the files opened by a particular process:
 
 For most use cases `lsof` requires superuser privileges as it needs to look at file handle tables for processes not owned by the current user.
 
-### df
-### du
-### sar
-### mpstat
-### vmstat
-### iostat
+### [df](http://man7.org/linux/man-pages/man1/df.1.html)
+Show disk space used by file systems.
+
+`-h` prints human readable sizes.\
+`-i` shows inode usage instead of space usage.
+
+### [du](http://man7.org/linux/man-pages/man1/du.1.html)
+Show disk space used by directories by recursively summing space used by their contents.
+
+`-h` prints human readable sizes.\
+`-s` prints sizes only for the top level arguments.
+
+### [sysstat](http://sebastien.godard.pagesperso-orange.fr/documentation.html)
+The sysstat package contains various tools for monitoring usage of system resources.
+Notable for `sar`, `iostat`, `mpstat`.
+
+### [sar](http://man7.org/linux/man-pages/man1/sar.1.html)
+`sar` reports on historical system resource usage by reading data collected by `sa1`. Samples are taken every 10mins so usually this is only helpful for getting a basic overview of non-transient bottlenecks.
+
+### [iostat](http://man7.org/linux/man-pages/man1/iostat.1.html)
+iostat reports on disk io and cpu usage since system boot. It can be run at a regular interval, in which case reports after the first cover the period since the previous report.
+
+`-h` human readable.\
+`-x` shows additional info on iops, e.g. wait times.
+
+### [mpstat](http://man7.org/linux/man-pages/man1/mpstat.1.html)
+mpstat reports on cpu usage broken down by cpu. Different machines will have different id layouts for cpus (e.g. for numa nodes, processors, cores) which it can be worth checking before drawing conclusions from mpstat.
+
+`mpstat -P ALL` reports on all cpus.
+
+### [vmstat](http://man7.org/linux/man-pages/man8/vmstat.8.html)
+vmstat reports on virtual memory and cpu usage. It generally puts a report on a single line and so is easily composed with other tools.
+
 ### time
 ### strace
 ### dtrace
