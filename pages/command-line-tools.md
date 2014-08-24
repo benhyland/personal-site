@@ -524,11 +524,27 @@ mpstat reports on cpu usage broken down by cpu. Different machines will have dif
 ### [vmstat](http://man7.org/linux/man-pages/man8/vmstat.8.html)
 vmstat reports on virtual memory and cpu usage. It generally puts a report on a single line and so is easily composed with other tools.
 
+
 ### time
-### strace
-### dtrace
+Both the [bash builtin](http://man7.org/linux/man-pages/man1/bash.1.html) and the traditional unix [command](http://linux.die.net/man/1/time) run a given command and then display how much time elapsed and how long was spent executing user and system code. Linux has several different ways of [measuring time](http://man7.org/linux/man-pages/man7/time.7.html), in case more detail is needed.
+
+### [strace](http://man7.org/linux/man-pages/man1/strace.1.html)
+As [Julia Evans says](http://jvns.ca/blog/2014/04/20/debug-your-programs-like-theyre-closed-source/), [strace lets you be a wizard](https://www.youtube.com/watch?v=4pEHfGKB-OE).
+
+To attach to an existing process, following all threads, and tracing 'open' syscalls:
+
+	strace -p pid -f -e open
+
+### [ltrace](http://man7.org/linux/man-pages/man1/ltrace.1.html)
+Like strace for library functions instead of system calls.
+
+### [dtrace](http://dtrace.org/guide/chapter.html)
+DTrace is surely one of the best things ever, but I haven't had the opportunity to use it. The linux ports are nowhere near mature yet. I would pick systemtap or a breadknife instead, but I wouldn't use either in production.
+
+### [stap](http://man7.org/linux/man-pages/man1/stap.1.html)
+`stap` is the command line interface to [systemtap](https://sourceware.org/systemtap/documentation.html), which allows scripted instrumentation of kernel and user space. While it is probably the most useful and mature of the options for this sort of thing on linux, it doesn't have the built in protections that dtrace provides so take extreme care when writing scripts and avoid running `stap` in production environments, as it is possible for it to crash the kernel.
+
 ### perf
-### systemtap
 ### taskset, isolcpus, chkconfig, chrt
 ### hostname
 ### date
@@ -539,10 +555,3 @@ vmstat reports on virtual memory and cpu usage. It generally puts a report on a 
 ### ulimit
 ### watch
 
-# Building
-
-### make
-### gcc
-### lld
-### rpmbuild
-### mock
