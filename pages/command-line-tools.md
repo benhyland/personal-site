@@ -544,7 +544,8 @@ DTrace is surely one of the best things ever, but I haven't had the opportunity 
 ### [stap](http://man7.org/linux/man-pages/man1/stap.1.html)
 `stap` is the command line interface to [systemtap](https://sourceware.org/systemtap/documentation.html), which allows scripted instrumentation of kernel and user space. While it is probably the most useful and mature of the options for this sort of thing on linux, it doesn't have the built in protections that dtrace provides so take extreme care when writing scripts and avoid running `stap` in production environments, as it is possible for it to crash the kernel.
 
-### perf
+Related tools are [perf](https://perf.wiki.kernel.org/index.php/Main_Page), [oprofile](http://oprofile.sourceforge.net/docs/), [ftrace](https://www.kernel.org/doc/Documentation/trace/ftrace.txt). Brendan Gregg has a good [book](http://www.brendangregg.com/sysperfbook.html) on this sort of thing and material online about [ftrace specifically](http://lwn.net/Articles/608497/) and [linux performance in general](http://www.brendangregg.com/linuxperf.html).
+
 ### taskset, isolcpus, chkconfig, chrt
 ### hostname
 ### date
