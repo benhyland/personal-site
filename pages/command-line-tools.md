@@ -546,7 +546,20 @@ DTrace is surely one of the best things ever, but I haven't had the opportunity 
 
 Related tools are [perf](https://perf.wiki.kernel.org/index.php/Main_Page), [oprofile](http://oprofile.sourceforge.net/docs/), [ftrace](https://www.kernel.org/doc/Documentation/trace/ftrace.txt). Brendan Gregg has a good [book](http://www.brendangregg.com/sysperfbook.html) on this sort of thing and material online about [ftrace specifically](http://lwn.net/Articles/608497/) and [linux performance in general](http://www.brendangregg.com/linuxperf.html).
 
-### taskset, isolcpus, chkconfig, chrt
+### [taskset](http://man7.org/linux/man-pages/man1/taskset.1.html)
+Sets cpu affinity for a new or existing process.
+
+	taskset -c 0,2,4-7 -p <pid>
+	taskset -c 1,2 <command>
+
+See also [numactl](http://man7.org/linux/man-pages/man8/numactl.8.html) for a more powerful interface that can also control memory placement.
+
+### isolcpus
+Isolcpus is the [kernel parameter](https://www.kernel.org/doc/Documentation/kernel-parameters.txt) used to exclude cpus from the scheduler. Processes can only be run on an isolated cpu by setting their cpu affinity. Certain other tasks can still interupt a process running on an isolated cpu. Gilad Ben-Yossef has a [list](https://github.com/gby/linux/wiki) of interference sources.
+
+### [chrt](http://man7.org/linux/man-pages/man1/chrt.1.html)
+Changes the [scheduler](http://man7.org/linux/man-pages/man7/sched.7.html) used for a given process.
+
 ### hostname
 ### date
 ### whoami (whoami really? apue/dan script)
