@@ -3,7 +3,7 @@ title: Command Line Tools
 summary: Quick descriptions of program I use often during my normal work, and also some network focused tools I encountered for the first time when working on rotation with our Information Services team.
 ---
 
-# Filesystem
+# Files
 
 ### [ls](http://man7.org/linux/man-pages/man1/ls.1.html)
 `-s` shows allocated blocks.\
@@ -168,6 +168,9 @@ Find can also invoke commands on its results.
 `-exec command arg '{}' ';'` will execute command once for each result. `{}` are replaced with the path to the current target, `;` signifies the end of `command`'s arguments. `-exec command arg '{}' '+'` does the same but builds up a list of results to reduce the number of `command` invocations. There could be more than one invocation if the number of results is large enough to run over the maximum command length. Since the command is built by appending results, there cannot be any args between `{}` and `+`.
 
 	find . ! -path './build*' -name '*.log' -exec tar cvf ~/logs.tar '{}' '+'
+
+### [fuser](http://man7.org/linux/man-pages/man1/fuser.1.html)
+Reads /proc to show pids using a particular file or socket.
 
 # Remoting
 
@@ -431,7 +434,7 @@ Show per process thread ids, BSD and UNIX styles:
 	ps axH -O lwp
 	ps -eLf
 
-For historical reasons the term used for threads by `ps` is `**l**ight **w**eight **p**rocess`. Originally, linux only supported multithreaded processes via userspace threading libraries - to the kernel there was still only a single process. Nowadays the kernel doesn't distinguish very much between threads and processes - it has a process for each thread. In linux, threads share a thread group id (which is the return value for [getpid](http://man7.org/linux/man-pages/man2/getpid.2.html)) and have a system-unique thread id (returned by [gettid](http://man7.org/linux/man-pages/man2/gettid.2.html). See [clone](http://man7.org/linux/man-pages/man2/clone.2.html).
+For historical reasons the term used for threads by `ps` is **l**ight **w**eight **p**rocess. Originally, linux only supported multithreaded processes via userspace threading libraries - to the kernel there was still only a single process. Nowadays the kernel doesn't distinguish very much between threads and processes - it has a process for each thread. In linux, threads share a thread group id (which is the return value for [getpid](http://man7.org/linux/man-pages/man2/getpid.2.html)) and have a system-unique thread id (returned by [gettid](http://man7.org/linux/man-pages/man2/gettid.2.html). See [clone](http://man7.org/linux/man-pages/man2/clone.2.html).
 
 ### [pgrep/pkill](http://man7.org/linux/man-pages/man1/pgrep.1.html)
 List or signal processes selected by the given criteria.
@@ -560,12 +563,24 @@ Isolcpus is the [kernel parameter](https://www.kernel.org/doc/Documentation/kern
 ### [chrt](http://man7.org/linux/man-pages/man1/chrt.1.html)
 Changes the [scheduler](http://man7.org/linux/man-pages/man7/sched.7.html) used for a given process.
 
-### hostname
-### date
-### whoami (whoami really? apue/dan script)
-### uname
-### group
-### umask
-### ulimit
-### watch
+### [date](http://man7.org/linux/man-pages/man1/date.1.html)
+Report the current sytem date and time. Also helps convert time in various formats.
 
+### [id](http://man7.org/linux/man-pages/man1/id.1.html)
+Shows user and group ids for the given user. Can also show names if `-n` is specified.
+
+[whoami](http://man7.org/linux/man-pages/man1/whoami.1.html) is a shorthand to show the effective username of the current user.
+
+[tty](http://man7.org/linux/man-pages/man1/tty.1.html) shows which terminal device is currently used for stdin.
+
+[w](http://man7.org/linux/man-pages/man1/w.1.html) shows who is logged on and what they are running on various terminals.
+
+One way to see who is really in charge after having substituted another user (thanks to Dan Shearer for being first to show me this):
+
+	tty=$(tty); w | grep ${tty#/dev/} | cut -d ' ' -f 1
+
+### [uname](http://man7.org/linux/man-pages/man1/uname.1.html)
+Shows various system info, e.g. OS, kernel version. `-a` shows everything.
+
+### ulimit
+`ulimit` is a [bash builtin](http://man7.org/linux/man-pages/man1/bash.1.html) to show and set various per-user resource limits. There are also system-wide limits for many resources.
