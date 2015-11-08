@@ -1,7 +1,7 @@
 personal-site
 =============
 
-A [hakyll](http://jaspervdj.be/hakyll/) project to record some of the process of learning FreeBSD, git, Play etc.
+A [hakyll](http://jaspervdj.be/hakyll/) project to record learning notes, links and whatever.
 May eventually turn into a personal website.
 
 first build with `ghc --make site.hs`
