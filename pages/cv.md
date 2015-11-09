@@ -4,8 +4,9 @@ title: Ben Hyland
 
 #### [mail@bhyland.co.uk](mailto:mail@bhyland.co.uk)
 
-Languages: Java, with some Scala, Python, Groovy, bash, C; minimal Scheme, Haskell, C++
-Main interests: distributed system design, agile development, functional programming, process automation, testing
+**Languages**: Java, with some Scala, Python, Groovy, bash, C; minimal Scheme, Haskell, C++
+
+**Main interests**: distributed system design, agile development, functional programming, process automation, testing
 
 ## Employment History
 
@@ -15,7 +16,7 @@ May 2013 onwards:
 Developer at **[LMAX Exchange](http://www.lmax.com/)**
 
 * Development of new features for order matching, brokering, risk management, monitoring, market data and trade reporting
-* Decreasing latency via cpu affinity, disk, and network IO tuning, refactoring, and targeted architecture change
+* Decreasing latency via cpu affinity, disk and network IO tuning, refactoring, and targeted architecture change
 * Design and development of tooling to improve the build system, database management, and development and deployment processes
 
 * * * * *
