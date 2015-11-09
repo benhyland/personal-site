@@ -98,7 +98,7 @@ Form should be varied often.
 * Slow and deep, moving towards pushes.
 * Gravity based, very relaxed with heavy hands.
 * Accuracy, for stop hits and to penetrate defence.
-* Agression as a defence.
+* Aggression as a defence.
 * Hits specifically to deform structure.
 * Hits to attack weapons (e.g. arms).
 * Boxing style - high elbow, straight line from shoulder, shoulder moves first for a whipped arm, tension only at the last second.
