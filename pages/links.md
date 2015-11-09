@@ -2,7 +2,7 @@
 title: Links
 ---
 
-## Stuff I follow
+## People I follow, sometimes
 
 * [Paul Duffield](http://www.paulduffield.co.uk/)
 * [eiríkr åsheim](https://twitter.com/d6)
@@ -14,7 +14,6 @@ title: Links
 * [Conor McBride](https://twitter.com/pigworker)
 * [Maryam Namazie](http://freethoughtblogs.com/maryamnamazie)
 * [Ashe Dryden](https://twitter.com/ashedryden)
-* [b00mb0x](http://www.bmbx.org/)
 * [Martin Thompson](http://mechanical-sympathy.blogspot.co.uk/)
 * [Michael Barker](http://bad-concurrency.blogspot.co.uk) 
 * [Anna Powell-Smith](http://anna.ps/)
@@ -41,6 +40,7 @@ title: Links
 * [Threat](https://ssd.eff.org/en/module/introduction-threat-modeling)
 * [Colour](http://paletton.com/)
 * [envdir](http://cr.yp.to/daemontools/envdir.html)
+* [b00mb0x](http://www.bmbx.org/)
 
 ## My stuff
 
