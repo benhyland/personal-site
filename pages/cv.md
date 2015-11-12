@@ -13,7 +13,7 @@ title: Ben Hyland
 * * * * *
 
 May 2013 onwards:  
-Developer at **[LMAX Exchange](http://www.lmax.com/)**
+Developer at **[LMAX Exchange](https://www.lmax.com/)**
 
 * Development of new features for order matching, brokering, risk management, monitoring, market data and trade reporting
 * Decreasing latency via cpu affinity, disk and network IO tuning, refactoring, and targeted architecture change
@@ -31,7 +31,7 @@ Senior Developer, Team Lead at **[Qatarlyst](http://www.ebixexchange.co.uk/)**
 * * * * *
 
 August 2007 - April 2011:  
-Software Engineer, Search Architect at **[Taptu](https://www.taptu.com/)**
+Software Engineer, Search Architect at **[Taptu](https://en.wikipedia.org/wiki/Taptu)**
 
 * Improvement of content mixing, generating per-user recommendations using text classification and clustering algorithms
 * Implementation of distributed, scalable and fault tolerant web crawlers with adaptive recrawl period

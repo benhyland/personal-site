@@ -286,7 +286,7 @@ Examine sockets. Replaces `netstat` where available.
 `-o`, `-i`, `-e`, `-m`, `-s` shows various forms of info associated with each socket.
 
 ### [lldpctl](http://vincentbernat.github.io/lldpd/usage.html)
-Each interface on a device sends [LLDP](http://en.wikipedia.org/wiki/Link_Layer_Discovery_Protocol) frames at regular intervals to inform the network of device details. `lldpd` receives (and sends) the lldp frames. `lldpctl` queries the info received, and can tell us what is connected on the other end of our links.
+Each interface on a device sends [LLDP](https://en.wikipedia.org/wiki/Link_Layer_Discovery_Protocol) frames at regular intervals to inform the network of device details. `lldpd` receives (and sends) the lldp frames. `lldpctl` queries the info received, and can tell us what is connected on the other end of our links.
 
 For example, to show basic mandatory lldp info for devices connected to eth0:
 
@@ -300,7 +300,7 @@ To capture all tcp packets on a particular port to file, using the maximum buffe
 
 	tcpdump -i eth0 -w outfile -B 65535 'tcp port 9001'
 
-Recorded dumps can be analysed with [wireshark](http://www.wireshark.org/docs/). Fairly powerful filter languages are available in both [tcpdump](http://www.tcpdump.org/manpages/pcap-filter.7.html) and [wireshark](http://wiki.wireshark.org/DisplayFilters) to help make capture and analysis more tractable. 
+Recorded dumps can be analysed with [wireshark](https://www.wireshark.org/docs/). Fairly powerful filter languages are available in both [tcpdump](http://www.tcpdump.org/manpages/pcap-filter.7.html) and [wireshark](https://wiki.wireshark.org/DisplayFilters) to help make capture and analysis more tractable.
 
 # Text Processing
 
@@ -336,7 +336,7 @@ To emit only the matched group wherever it occurs:
 `-i` or `-i .bak` to transform in place with optional backup suffix.
 
 ### [awk](http://man7.org/linux/man-pages/man1/gawk.1.html)
-[AWK](http://en.wikipedia.org/wiki/AWK) named after [Aho](http://en.wikipedia.org/wiki/Alfred_Aho), [Weinberger](http://en.wikipedia.org/wiki/Peter_J._Weinberger) and [Kernighan](http://en.wikipedia.org/wiki/Brian_Kernighan).
+[AWK](https://en.wikipedia.org/wiki/AWK) named after [Aho](https://en.wikipedia.org/wiki/Alfred_Aho), [Weinberger](https://en.wikipedia.org/wiki/Peter_J._Weinberger) and [Kernighan](https://en.wikipedia.org/wiki/Brian_Kernighan).
 
 Awk is used for filtering and processing text files by dividing them into records and fields, and providing a dsl for examining them and emitting processed data. By default, records are delimited by newlines and fields by whitespace. The awk script language is powerful and well designed for simple processing. However, it is dynamically typed and not particularly easy to test, so it is best to avoid complicated stateful processing.
 
@@ -541,7 +541,7 @@ To attach to an existing process, following all threads, and tracing 'open' sysc
 ### [ltrace](http://man7.org/linux/man-pages/man1/ltrace.1.html)
 Like strace for library functions instead of system calls.
 
-### [dtrace](http://dtrace.org/guide/chapter.html)
+### [dtrace](http://dtrace.org/guide/preface.html)
 DTrace is surely one of the best things ever, but I haven't had the opportunity to use it. The linux ports are nowhere near mature yet. I would pick perf, systemtap or a breadknife instead, but I wouldn't use them in production.
 
 ### [stap](http://man7.org/linux/man-pages/man1/stap.1.html)

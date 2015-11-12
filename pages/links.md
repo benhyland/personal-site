@@ -7,19 +7,19 @@ title: Links
 * [Paul Duffield](http://www.paulduffield.co.uk/)
 * [eiríkr åsheim](https://twitter.com/d6)
 * [PZ Myers](http://freethoughtblogs.com/pharyngula/)
-* [Mangaminx](http://www.youtube.com/user/TheRPGMinx/about)
+* [Mangaminx](https://www.youtube.com/user/TheRPGMinx/about)
 * [John Hodgman](http://www.maximumfun.org/shows/judge-john-hodgman)
 * [King Megatrip](http://megatrip.blogspot.co.uk/)
 * [Charles Stross](http://www.antipope.org/charlie/blog-static/)
 * [Conor McBride](https://twitter.com/pigworker)
-* [Maryam Namazie](http://freethoughtblogs.com/maryamnamazie)
+* [Maryam Namazie](http://freethoughtblogs.com/maryamnamazie/)
 * [Ashe Dryden](https://twitter.com/ashedryden)
 * [Martin Thompson](http://mechanical-sympathy.blogspot.co.uk/)
 * [Michael Barker](http://bad-concurrency.blogspot.co.uk) 
 * [Anna Powell-Smith](http://anna.ps/)
 * [Erika Moen](http://www.erikamoen.com/blog/)
 * [Kristian Glass](https://twitter.com/doismellburning)
-* [jwz](http://www.jwz.org/blog/)
+* [jwz](https://www.jwz.org/blog/)
 * [Julia Evans](http://jvns.ca/)
 * [Ursula K. Le Guin](http://www.ursulakleguin.com/)
 
@@ -47,7 +47,7 @@ title: Links
 * My [past experience](cv.html), stripped down but vaguely CV shaped
 * My [LinkedIn profile](https://www.linkedin.com/pub/ben-hyland/3/a68/332)
 * My [GitHub repos](https://github.com/benhyland?tab=repositories)
-* My current employer, [LMAX Exchange](http://www.lmax.com)
+* My current employer, [LMAX Exchange](https://www.lmax.com)
 
 I find the following quote from [Whitehead](https://en.wikipedia.org/wiki/Alfred_North_Whitehead) to be a good summary of my attitude as a developer:
 

@@ -7,7 +7,7 @@ For a webapp I was working on a while ago, we needed to provide a particular use
 
 The problem is to allow the user to authenticate by providing only a portion of some code. On login, the server randomly selects some indices, and the user must provide the characters from their code which correspond to those indices. The server will want to check that the user provided the correct characters, but of course it should not store them as cleartext.
 
-Here is my Scala implementation of [partial passwords](https://github.com/benhyland/partial-pass) using threshold [secret sharing](http://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing). The main advantage to this solution is that it requires only linear space.
+Here is my Scala implementation of [partial passwords](https://github.com/benhyland/partial-pass) using threshold [secret sharing](https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing). The main advantage to this solution is that it requires only linear space.
 
 Briefly, the way it works is:
 
