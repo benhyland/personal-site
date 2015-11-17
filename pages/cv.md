@@ -4,7 +4,7 @@ title: Ben Hyland
 
 #### [mail@bhyland.co.uk](mailto:mail@bhyland.co.uk)
 
-**Languages**: Java, with some Scala, Python, Groovy, bash, C; minimal Scheme, Haskell, C++
+**Languages**: Java, with some Scala, Python, Javascript, Groovy, bash, C
 
 **Main interests**: distributed system design, agile development, functional programming, process automation, testing
 
@@ -22,7 +22,7 @@ Developer at **[LMAX Exchange](https://www.lmax.com/)**
 * * * * *
 
 April 2011 - April 2013:  
-Senior Developer, Team Lead at **[Qatarlyst](http://www.ebixexchange.co.uk/)**
+Senior Developer, Team Lead at **[Qatarlyst (now ebix)](http://www.ebixexchange.co.uk/)**
 
 * Design and development relating to contracts and documents, security, and business process handling for a new insurance trading platform
 * Mentoring and intra- and inter-team coordination, particularly in areas of requirements definition, architecture, and quality control

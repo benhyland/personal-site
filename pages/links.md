@@ -22,6 +22,8 @@ title: Links
 * [jwz](https://www.jwz.org/blog/)
 * [Julia Evans](http://jvns.ca/)
 * [Ursula K. Le Guin](http://www.ursulakleguin.com/)
+* [Jason Kottke](http://kottke.org/)
+* [Bruce Schneier](https://www.schneier.com/)
 
 ## One-off resources to remember
 
