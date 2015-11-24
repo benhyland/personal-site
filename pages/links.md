@@ -43,6 +43,7 @@ title: Links
 * [Colour](http://paletton.com/)
 * [envdir](http://cr.yp.to/daemontools/envdir.html)
 * [b00mb0x](http://www.bmbx.org/)
+* [MESI for softies (pdf)](http://www.puppetmastertrading.com/images/hwViewForSwHackers.pdf)
 
 ## My stuff
 
