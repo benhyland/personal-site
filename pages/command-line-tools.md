@@ -488,9 +488,10 @@ Show the files opened by a particular process:
 
 	lsof -p <pid>
 
-`-a` use conjuntion instead of disjunction for combining multiple selection options.\
+`-a` use conjunction instead of disjunction for combining multiple selection options.\
 `-n` prevent dns lookups.\
-`-t` just display the pid.
+`-t` just display the pid.\
+`-P` display raw port numbers instead of registered purpose.
 
 For most use cases `lsof` requires superuser privileges as it needs to look at file handle tables for processes not owned by the current user.
 
