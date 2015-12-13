@@ -24,6 +24,7 @@ title: Links
 * [Ursula K. Le Guin](http://www.ursulakleguin.com/)
 * [Jason Kottke](http://kottke.org/)
 * [Bruce Schneier](https://www.schneier.com/)
+* [Valerie Aurora](http://valerieaurora.org/)
 
 ## One-off resources to remember
 
