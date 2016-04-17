@@ -5,7 +5,6 @@ title: Links
 ## People I follow, sometimes
 
 * [Paul Duffield](http://www.paulduffield.co.uk/)
-* [eiríkr åsheim](https://twitter.com/d6)
 * [PZ Myers](http://freethoughtblogs.com/pharyngula/)
 * [Mangaminx](https://www.youtube.com/user/TheRPGMinx/about)
 * [John Hodgman](http://www.maximumfun.org/shows/judge-john-hodgman)
@@ -25,6 +24,7 @@ title: Links
 * [Jason Kottke](http://kottke.org/)
 * [Bruce Schneier](https://www.schneier.com/)
 * [Valerie Aurora](http://valerieaurora.org/)
+* [Dan Luu](http://danluu.com/)
 
 ## One-off resources to remember
 
@@ -49,9 +49,9 @@ title: Links
 ## My stuff
 
 * My [past experience](cv.html), stripped down but vaguely CV shaped
-* My [LinkedIn profile](https://www.linkedin.com/pub/ben-hyland/3/a68/332)
+* My [LinkedIn profile](https://www.linkedin.com/in/ben-hyland-332a683)
 * My [GitHub repos](https://github.com/benhyland?tab=repositories)
-* My current employer, [LMAX Exchange](https://www.lmax.com)
+* My current employer, [\@gdsteam](https://twitter.com/gdsteam)
 
 I find the following quote from [Whitehead](https://en.wikipedia.org/wiki/Alfred_North_Whitehead) to be a good summary of my attitude as a developer:
 

@@ -4,7 +4,7 @@ title: Ben Hyland
 
 #### [mail@bhyland.co.uk](mailto:mail@bhyland.co.uk)
 
-**Languages**: Java, with some Scala, Python, Javascript, Groovy, bash, C
+**Languages**: Java, with some Scala, Python, Javascript, Groovy, bash, C, Ruby
 
 **Main interests**: distributed system design, agile development, functional programming, process automation, testing
 
@@ -12,8 +12,16 @@ title: Ben Hyland
 
 * * * * *
 
-May 2013 onwards:  
-Developer at **[LMAX Exchange](https://www.lmax.com/)**
+March 2016 onwards:
+
+Senior Developer at **[GDS](https://gds.blog.gov.uk/)**
+
+* Working with the Finding Things team on search and publishing backend architecture improvements
+
+* * * * *
+
+May 2013 - February 2016:
+Developer, Team Lead at **[LMAX Exchange](https://www.lmax.com/)**
 
 * Development of new features for order matching, brokering, risk management, monitoring, market data and trade reporting
 * Decreasing latency via cpu affinity, disk and network IO tuning, refactoring, and targeted architecture change
