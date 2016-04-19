@@ -5,6 +5,7 @@ title: Links
 ## People I follow, sometimes
 
 * [Paul Duffield](http://www.paulduffield.co.uk/)
+* [eiríkr åsheim](https://twitter.com/d6)
 * [PZ Myers](http://freethoughtblogs.com/pharyngula/)
 * [Mangaminx](https://www.youtube.com/user/TheRPGMinx/about)
 * [John Hodgman](http://www.maximumfun.org/shows/judge-john-hodgman)
