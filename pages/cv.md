@@ -6,7 +6,7 @@ title: Ben Hyland
 
 **Languages**: Java, with some Scala, Python, Javascript, Groovy, bash, C, Ruby
 
-**Main interests**: distributed system design, agile development, functional programming, process automation, testing
+**Main interests**: distributed system design, agile team behaviours, functional programming, testing, process automation
 
 ## Employment History
 
@@ -17,6 +17,7 @@ March 2016 onwards:
 Senior Developer at **[GDS](https://gds.blog.gov.uk/)**
 
 * Working with the Finding Things team on search and publishing backend architecture improvements
+* Improving monitoring, support tools, and deployment automation of the Government PaaS, based on AWS and CloudFoundry.
 
 * * * * *
 
