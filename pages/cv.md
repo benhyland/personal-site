@@ -12,11 +12,11 @@ title: Ben Hyland
 
 * * * * *
 
-March 2016 onwards:
+March 2016 - January 2017:
 
 Senior Developer at **[GDS](https://gds.blog.gov.uk/)**
 
-* Working with the Finding Things team on search and publishing backend architecture improvements
+* Architecture improvements and data consistency monitoring for the GOV.UK search and publishing backend, with the Finding Things team.
 * Improving monitoring, support tools, and deployment automation of the Government PaaS, based on AWS and CloudFoundry.
 
 * * * * *

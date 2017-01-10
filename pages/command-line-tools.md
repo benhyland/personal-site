@@ -197,6 +197,14 @@ This can be useful in scripts that need to pre-authorise as they start up.
 
 Some forwarding rules in the config file can save typing if you have a segregated network and regularly need to go via jump hosts.
 
+Set up a tunnel to connect a local port to a target via a remote box:
+
+	ssh -N -L <localport>:<targethost>:<targetport> <remotehost>
+
+Set up a tunnel to connect a remote port to a target via the local box:
+
+	ssh -N -R <remoteport>:<targethost>:<targetport> <remotehost>
+
 ### [scp](http://man7.org/linux/man-pages/man1/scp.1.html)
 
 	scp user@sourcehost:/path/to/source user@targethost:/path/to/target
@@ -320,6 +328,10 @@ Searches input text for patterns and outputs matching lines.
 `-E` allow extended regex (including `|` for pattern disjunction).\
 `-f patternfile` obtain patterns from the given file.\
 `-F` treat patterns as fixed strings delimited by newlines.
+
+Using grep to hold 24GB of memory for 2 mins:
+
+	cat <(yes | tr \\n x | head -c $((1024*1024*1024*24))) <(sleep 120) | grep n
 
 ### [sed](http://man7.org/linux/man-pages/man1/sed.1.html)
 Transforms streamed text.
