@@ -3,3 +3,4 @@ site
 *.o
 _cache
 _site
+.venv
